@@ -1,8 +1,8 @@
 # threejs-raycast-test
 Debugging raycasting in THREE.js 2020 vs 2016 versions
 
-- Run `index2016.html` to see intended behavior, loading the three.js library from 2016.
-- Run `index2020.html` to see the same application running with the 2020 versions of the three.js library and utilities.
+- Run `sphere-demo/index2016.html` to see intended behavior, loading the three.js library from 2016.
+- Run `sphere-demo/index2020.html` to see the same application running with the 2020 versions of the three.js library and utilities.
 
 The source code of these files is identical other than the libraries loaded in the `<head>`.
 
