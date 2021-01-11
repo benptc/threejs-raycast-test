@@ -9,6 +9,7 @@
 
 <!-- Body is identical to index2020.html -->
 <body>
+<button onclick="toggleMotion()">Toggle Motion</button>
 <script>
   var camera, scene, renderer;
   var threejsContainerObj;
@@ -25,6 +26,9 @@
   var hue = 0;
   var saturation = 0.75;
   var lightness = 0.6;
+  let isMoving = false;
+  let x = 0;
+  let direction = 1;
 
   var raycaster = new THREE.Raycaster();
   var mouse = new THREE.Vector2();
@@ -154,12 +158,27 @@
       mesh.rotation.x += 0.005;
       mesh.rotation.y += 0.01;
 
+      if (isMoving) {
+        x += direction;
+        if (x > rendererWidth/2) {
+          direction = -1;
+        }
+        if (x < -rendererWidth/2) {
+          direction = 1;
+        }
+        mesh.position.setX(x);
+      }
+
       // render the scene
       threejsContainerObj.visible = true;
       renderer.render( scene, camera );
     }
 
     requestAnimationFrame(renderScene);
+  }
+
+  function toggleMotion() {
+    isMoving = !isMoving
   }
 </script>
 </body>
